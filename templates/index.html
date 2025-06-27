@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Web Scanner</title></head>
+<body>
+    <h2>Web App Vulnerability Scanner</h2>
+    <form method="post">
+        <input name="url" placeholder="Enter URL" style="width:300px">
+        <input type="submit" value="Scan">
+    </form>
+    <hr>
+    {% if results %}
+        <h3>Scan Results:</h3>
+        <ul>
+        {% for url, payload in results %}
+            <li><strong>{{ url }}</strong> → Payload: <code>{{ payload }}</code></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
